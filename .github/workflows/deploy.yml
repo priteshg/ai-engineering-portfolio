@@ -27,7 +27,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npx tsc --noEmit
+      # next build type-checks the whole project itself (and generates the
+      # ambient Next.js types, e.g. LayoutProps, that a standalone `tsc`
+      # run here wouldn't have yet) — a separate `tsc --noEmit` step before
+      # this is both redundant and, in that order, guaranteed to fail.
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
