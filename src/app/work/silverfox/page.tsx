@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CaseStudyHeader } from "@/components/case-study/CaseStudyHeader";
 import { CaseStudySection } from "@/components/case-study/CaseStudySection";
 import { FlowDiagram } from "@/components/case-study/FlowDiagram";
@@ -213,12 +214,12 @@ export default function SilverfoxPage() {
           Underneath both agents sits {unitSuite.location.replace(", ", " and ")}
           : {unitSuite.description} Full findings, examples and the reasoning
           behind splitting the two agents are on the{" "}
-          <a
+          <Link
             href="/work/ai-test-agents"
             className="text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
           >
             AI Test Agents
-          </a>{" "}
+          </Link>{" "}
           page.
         </p>
       </CaseStudySection>

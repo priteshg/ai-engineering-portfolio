@@ -1,10 +1,12 @@
+import { basePath } from "@/lib/basePath";
+
 export function Portrait() {
   return (
     <div className="relative w-full max-w-[280px]">
       <div className="overflow-hidden rounded-2xl border border-border bg-surface-2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/pritesh.jpg"
+          src={`${basePath}/pritesh.jpg`}
           alt="Portrait of Pritesh Gandhi, duotone illustration treatment"
           className="aspect-[4/5] w-full object-cover"
           loading="lazy"

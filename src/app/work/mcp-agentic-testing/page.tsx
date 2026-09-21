@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CaseStudyHeader } from "@/components/case-study/CaseStudyHeader";
 import { CaseStudySection } from "@/components/case-study/CaseStudySection";
 import { FlowDiagram } from "@/components/case-study/FlowDiagram";
@@ -30,12 +31,12 @@ export default function McpAgenticTestingPage() {
             Nothing on this page is built. No MCP server exists for this
             work, no tools are exposed, and no agent has used one. This is
             written down because it&apos;s the direction{" "}
-            <a
+            <Link
               href="/work/ai-test-agents"
               className="text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
             >
               AI Test Agents
-            </a>{" "}
+            </Link>{" "}
             points next, not because any of it exists yet.
           </p>
         </div>

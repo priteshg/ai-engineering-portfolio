@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { Portrait } from "./Portrait";
 import { experience } from "@/data/experience";
+import { basePath } from "@/lib/basePath";
 
 export function About() {
   return (
@@ -57,8 +58,8 @@ export function About() {
                     className="h-full w-full max-w-[120px] text-muted transition-colors duration-300 group-hover:text-foreground"
                     style={{
                       backgroundColor: "currentColor",
-                      WebkitMaskImage: `url(${entry.logo})`,
-                      maskImage: `url(${entry.logo})`,
+                      WebkitMaskImage: `url(${basePath}${entry.logo})`,
+                      maskImage: `url(${basePath}${entry.logo})`,
                       WebkitMaskRepeat: "no-repeat",
                       maskRepeat: "no-repeat",
                       WebkitMaskPosition: "left center",

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PipelineVisual } from "./PipelineVisual";
+import { basePath } from "@/lib/basePath";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -98,7 +99,7 @@ export function Hero() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/pritesh-hero.jpg"
+              src={`${basePath}/pritesh-hero.jpg`}
               alt="Pritesh Gandhi"
               className="aspect-[3/4] w-full object-cover"
             />

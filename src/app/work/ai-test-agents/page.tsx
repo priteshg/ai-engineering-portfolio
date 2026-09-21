@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CaseStudyHeader } from "@/components/case-study/CaseStudyHeader";
 import { CaseStudySection } from "@/components/case-study/CaseStudySection";
 import { FlowDiagram } from "@/components/case-study/FlowDiagram";
@@ -27,12 +28,12 @@ export default function AiTestAgentsPage() {
       <CaseStudySection heading="What this is">
         <p className="max-w-2xl leading-relaxed text-muted">
           This is real work tested against a real application —{" "}
-          <a
+          <Link
             href="/work/silverfox"
             className="text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
           >
             Silverfox
-          </a>
+          </Link>
           , not a demo app built to make the agents look good. One half of
           it is built and produces real findings today. The other half is
           planned, not yet written. Both are described here as they
