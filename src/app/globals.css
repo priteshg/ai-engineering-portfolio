@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-manrope);
+  --container-content: 84rem;
+}
+
+/* Light theme (default) — warm ivory, deep ink, muted copper & sage accents */
+:root {
+  --background: #f5f2ea;
+  --surface: #fcfbf7;
+  --surface-2: #e8e0d2;
+  --border: rgba(23, 25, 28, 0.1);
+  --border-strong: rgba(23, 25, 28, 0.18);
+  --foreground: #17191c;
+  --muted: #59616b;
+  --subtle: #7c8189;
+  --accent: #b76545;
+  --accent-soft: rgba(183, 101, 69, 0.12);
+  --signal: #6f8577;
+  --signal-soft: rgba(126, 146, 133, 0.16);
+  color-scheme: light;
+}
+
+/* Dark theme — deep ink foundation, warm white text, same accent hues */
+:root[data-theme="dark"] {
+  --background: #17191c;
+  --surface: #1d2024;
+  --surface-2: #24272c;
+  --border: rgba(252, 251, 247, 0.08);
+  --border-strong: rgba(252, 251, 247, 0.14);
+  --foreground: #fcfbf7;
+  --muted: #a4abb2;
+  --subtle: #71787f;
+  --accent: #c97b52;
+  --accent-soft: rgba(201, 123, 82, 0.14);
+  --signal: #8fa696;
+  --signal-soft: rgba(143, 166, 150, 0.14);
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --background: #17191c;
+    --surface: #1d2024;
+    --surface-2: #24272c;
+    --border: rgba(252, 251, 247, 0.08);
+    --border-strong: rgba(252, 251, 247, 0.14);
+    --foreground: #fcfbf7;
+    --muted: #a4abb2;
+    --subtle: #71787f;
+    --accent: #c97b52;
+    --accent-soft: rgba(201, 123, 82, 0.14);
+    --signal: #8fa696;
+    --signal-soft: rgba(143, 166, 150, 0.14);
+    color-scheme: dark;
   }
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-mono {
+  font-feature-settings: "liga" 0;
+}
+
+/* Grain / noise texture used sparingly over dark surfaces for depth */
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar to match the dark, precise aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
 }

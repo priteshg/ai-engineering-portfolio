@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Engineering Portfolio
 
-## Getting Started
+A personal portfolio site built as a premium technology product, not a CV
+page. It showcases 20 years of Quality Engineering experience and current
+work applying AI agents to software testing.
 
-First, run the development server:
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router, static export)
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+
+Dependencies are kept deliberately minimal — no UI kit, no icon library, no
+state management. Everything on the page is built from Tailwind and a
+handful of custom components.
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint       # ESLint
+npx tsc --noEmit   # Type check
+npm run build      # Production build (static export to ./out)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture
 
-## Learn More
+```
+src/
+  app/                 Root layout, global styles, single page route
+  components/
+    layout/             Navbar, Footer
+    sections/            Hero, Work, Engineering, Writing, About, Contact
+    motion/              Shared scroll-reveal primitive
+  data/                 Static content (projects, writing stubs, nav, stack)
+  types/                Shared domain types
+  lib/                  Utilities (className merging)
+```
 
-To learn more about Next.js, take a look at the following resources:
+Content lives in `src/data/*.ts`, separate from the components that render
+it, so copy can be edited without touching layout code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This first phase is the website only — no AI agent, chatbot, RAG or backend
+integration. The component and data boundaries are intentionally simple
+so that layer can be added later without a rebuild.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The site builds to a fully static export (`output: "export"` in
+`next.config.ts`) suitable for GitHub Pages. `.github/workflows/deploy.yml`
+builds and deploys `out/` to Pages on every push to `main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If deploying to `https://<user>.github.io/<repo>` (no custom domain), set
+the `NEXT_BASE_PATH` environment variable to `/<repo>` at build time. With a
+custom domain at the repository root, no base path is needed.
