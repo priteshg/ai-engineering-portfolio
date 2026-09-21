@@ -1,11 +1,19 @@
 "use client";
-import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navItems } from "@/data/nav";
 import { cn } from "@/lib/utils";
+import { basePath } from "@/lib/basePath";
 import { ThemeToggle } from "./ThemeToggle";
+
+// These are plain <a> tags, not next/link's <Link>, on purpose: they're all
+// hash-anchor links (same-page section scrolling on the homepage, or
+// homepage-plus-hash when arriving from a case-study page). next/link's
+// client-side router doesn't reliably scroll to the target element on a
+// same-document hash change — a real <a> gets the browser's native,
+// always-correct anchor scrolling for free. basePath is prefixed manually
+// since raw hrefs don't get it applied automatically the way Link does.
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,23 +43,23 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-content items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
-        <Link
-          href="/#top"
+        <a
+          href={`${basePath}/#top`}
           aria-label="Pritesh Gandhi — back to top"
           className="font-display text-xs font-semibold uppercase tracking-[0.28em] text-foreground"
         >
           Pritesh Gandhi
-        </Link>
+        </a>
 
         <ul className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
+              <a
+                href={`${basePath}${item.href}`}
                 className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {item.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -59,12 +67,12 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
-          <Link
-            href="/#contact"
+          <a
+            href={`${basePath}/#contact`}
             className="hidden rounded-full border border-border-strong px-4 py-2 text-sm text-foreground transition-colors hover:border-accent/60 hover:bg-accent-soft md:inline-flex"
           >
             Get in touch
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -114,8 +122,8 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 + i * 0.04 }}
                 >
-                  <Link
-                    href={item.href}
+                  <a
+                    href={`${basePath}${item.href}`}
                     onClick={() => setOpen(false)}
                     className="flex items-center justify-between border-b border-border py-4 text-lg text-foreground"
                   >
@@ -123,7 +131,7 @@ export function Navbar() {
                     <span className="font-mono text-xs text-subtle">
                       0{i + 1}
                     </span>
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>

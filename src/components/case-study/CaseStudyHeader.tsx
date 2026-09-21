@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { basePath } from "@/lib/basePath";
 
 interface CaseStudyHeaderProps {
   backHref: string;
@@ -24,13 +24,16 @@ export function CaseStudyHeader({
     <div className="pt-32 pb-4 sm:pt-40">
       <div className="mx-auto max-w-content px-6 sm:px-8 lg:px-12">
         <Reveal>
-          <Link
-            href={backHref}
+          {/* Plain <a>, not next/link: this crosses into a homepage hash
+              anchor, and native browser navigation scrolls to it reliably
+              after the page loads — see Navbar.tsx for the same reasoning. */}
+          <a
+            href={`${basePath}${backHref}`}
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-subtle transition-colors hover:text-foreground"
           >
             <span aria-hidden>←</span>
             {backLabel}
-          </Link>
+          </a>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">
