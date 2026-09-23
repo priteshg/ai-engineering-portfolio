@@ -19,8 +19,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "silverfox",
-    name: "Silverfox",
+    slug: "primeform",
+    name: "primeform",
     tagline: "Adaptive strength training built around real-world constraints.",
     summary:
       "A real, working training app, and the proving ground for Flow Agent — an implemented Playwright testing framework that investigates the app rather than just scripting it.",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     name: "AI Test Agents",
     tagline: "What happens when test automation can investigate software rather than simply execute a script?",
     summary:
-      "Flow Agent is real and running against Silverfox today. Logic Agent is the planned next step, not yet built.",
+      "Flow Agent is real and running against primeform today. Logic Agent is the planned next step, not yet built.",
     status: "experiment",
     tags: ["Testing", "Playwright", "Experiment"],
     stack: ["TypeScript", "Playwright", "Supabase (planned)"],
@@ -57,15 +57,15 @@ export const projects: Project[] = [
   },
 ];
 
-export const silverfoxAgents: AgentProfile[] = [
+export const primeformAgents: AgentProfile[] = [
   {
     name: "Flow Agent",
     kind: "Browser-driven · Implemented",
     status: "implemented",
     description:
-      "A Playwright-based framework that drives the real Silverfox app (via its Expo web build) through user journeys and structured security/boundary fuzzing, then writes up what it finds as a structured report — closer to exploratory testing than a fixed script.",
+      "A Playwright-based framework that drives the real primeform app (via its Expo web build) through user journeys and structured security/boundary fuzzing, then writes up what it finds as a structured report — closer to exploratory testing than a fixed script.",
     examples: [
-      "Session bootstrap (Silverfox has no login screen — every device gets an anonymous Supabase session)",
+      "Session bootstrap (primeform has no login screen — every device gets an anonymous Supabase session)",
       "Programme setup and editing",
       "Logging a workout and its sets",
       "Workout history",

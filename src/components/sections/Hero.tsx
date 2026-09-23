@@ -78,7 +78,7 @@ export function Hero() {
                 View my work
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/priteshg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:bg-accent-soft"

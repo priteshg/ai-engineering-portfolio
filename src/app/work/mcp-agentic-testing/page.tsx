@@ -84,7 +84,7 @@ export default function McpAgenticTestingPage() {
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-subtle">
           A diagram of the direction being considered, not a system that
           runs. Every box here is unbuilt except &ldquo;Application&rdquo; —
-          that part already exists, as Silverfox.
+          that part already exists, as primeform.
         </p>
       </CaseStudySection>
 

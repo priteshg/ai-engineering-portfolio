@@ -6,7 +6,7 @@ export function Portrait() {
       <div className="overflow-hidden rounded-2xl border border-border bg-surface-2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/pritesh.jpg`}
+          src={`${basePath}/pritesh.jpeg`}
           alt="Portrait of Pritesh Gandhi, duotone illustration treatment"
           className="aspect-[4/5] w-full object-cover"
           loading="lazy"

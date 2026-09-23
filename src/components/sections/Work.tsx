@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FlowDiagram } from "@/components/case-study/FlowDiagram";
-import { projects, silverfoxAgents } from "@/data/projects";
+import { projects, primeformAgents } from "@/data/projects";
 
 function StatusPill({ status }: { status: string }) {
   return (
@@ -37,7 +37,7 @@ function CaseStudyLink({ href }: { href: string }) {
   );
 }
 
-function SilverfoxPanel() {
+function PrimeformPanel() {
   const project = projects[0];
   return (
     <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -50,7 +50,7 @@ function SilverfoxPanel() {
         <p className="mt-5 max-w-lg leading-relaxed text-muted">
           {project.summary}
         </p>
-        <CaseStudyLink href="/work/silverfox" />
+        <CaseStudyLink href="/work/primeform" />
       </div>
 
       <div>
@@ -69,7 +69,7 @@ function AiTestAgentsPanel() {
     <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
       <div className="order-2 lg:order-1">
         <div className="grid gap-4 sm:grid-cols-2">
-          {silverfoxAgents.map((agent) => (
+          {primeformAgents.map((agent) => (
             <div
               key={agent.name}
               className="rounded-xl border border-border bg-surface p-5"
@@ -97,7 +97,7 @@ function AiTestAgentsPanel() {
             </div>
           ))}
           <div className="col-span-full rounded-xl border border-dashed border-border-strong p-5 text-sm leading-relaxed text-subtle">
-            Tested against Silverfox, a real application — not a demo built
+            Tested against primeform, a real application — not a demo built
             to make the agents look good.
           </div>
         </div>
@@ -163,7 +163,7 @@ export function Work() {
 
         <div className="mt-20 space-y-28">
           <Reveal>
-            <SilverfoxPanel />
+            <PrimeformPanel />
           </Reveal>
           <Reveal>
             <div className="h-px w-full bg-border" />

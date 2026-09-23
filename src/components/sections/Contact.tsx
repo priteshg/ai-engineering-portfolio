@@ -1,9 +1,9 @@
 import { Reveal } from "@/components/motion/Reveal";
 
 const links = [
-  { label: "GitHub", href: "https://github.com", handle: "@yourhandle" },
-  { label: "LinkedIn", href: "https://linkedin.com", handle: "in/yourname" },
-  { label: "Email", href: "mailto:hello@example.com", handle: "hello@example.com" },
+  { label: "GitHub", href: "https://github.com/priteshg", handle: "@priteshg" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/priteshgandhi80/", handle: "in/priteshgandhi80" },
+  { label: "Email", href: "mailto:pg4ndhi@gmail.com", handle: "pg4ndhi@gmail.com" },
 ];
 
 export function Contact() {

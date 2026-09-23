@@ -4,7 +4,7 @@ export interface CaseStudyStop {
 }
 
 export const caseStudySequence: CaseStudyStop[] = [
-  { href: "/work/silverfox", title: "Silverfox" },
+  { href: "/work/primeform", title: "primeform" },
   { href: "/work/ai-test-agents", title: "AI Test Agents" },
   { href: "/work/mcp-agentic-testing", title: "MCP + Agentic Testing" },
   { href: "/engineering/flake-detection", title: "Flake Detection" },

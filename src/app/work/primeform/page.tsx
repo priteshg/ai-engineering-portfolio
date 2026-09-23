@@ -5,12 +5,12 @@ import { CaseStudySection } from "@/components/case-study/CaseStudySection";
 import { FlowDiagram } from "@/components/case-study/FlowDiagram";
 import { ScreenshotFrame } from "@/components/case-study/ScreenshotFrame";
 import { CaseStudyNav } from "@/components/case-study/CaseStudyNav";
-import { silverfoxAgents } from "@/data/projects";
+import { primeformAgents } from "@/data/projects";
 import { flowAgentReport, journeySuite, unitSuite } from "@/data/flow-agent-report";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "Silverfox | Pritesh Gandhi",
+  title: "primeform | Pritesh Gandhi",
   description:
     "A real, working training app, and the proving ground for Flow Agent — an implemented Playwright testing framework that investigates the app rather than just scripting it.",
 };
@@ -24,7 +24,7 @@ const features = [
   "Try the whole thing via a built-in demo, before creating any account",
 ];
 
-export default function SilverfoxPage() {
+export default function primeformPage() {
   return (
     <>
       <CaseStudyHeader
@@ -32,7 +32,7 @@ export default function SilverfoxPage() {
         backLabel="Work"
         kicker="Product · Actively developed"
         status="building"
-        title="Silverfox"
+        title="primeform"
         thesis="Adaptive strength training built around real-world constraints."
         stack={[
           "TypeScript",
@@ -50,7 +50,7 @@ export default function SilverfoxPage() {
           time I have?&rdquo;
         </blockquote>
         <p className="mt-6 max-w-2xl leading-relaxed text-muted">
-          Silverfox is a training app built around that question, rather
+          primeform is a training app built around that question, rather
           than a fixed programme that ignores the day you&apos;re actually
           having. It&apos;s a real, working product — built and maintained
           solo — not a mockup.
@@ -67,18 +67,18 @@ export default function SilverfoxPage() {
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           <ScreenshotFrame
-            src="/screenshots/silverfox/landing.png"
-            alt="Silverfox landing screen with See a demo, Create account and Sign in"
+            src="/screenshots/primeform/landing.png"
+            alt="primeform landing screen with See a demo, Create account and Sign in"
             caption="Entry screen — no forced signup to look around"
           />
           <ScreenshotFrame
-            src="/screenshots/silverfox/demo-overview.png"
-            alt="Silverfox demo overview showing a Foundation 40+ programme, recent workouts and progression"
+            src="/screenshots/primeform/demo-overview.png"
+            alt="primeform demo overview showing a Foundation 40+ programme, recent workouts and progression"
             caption="Demo overview — example programme, history and suggested progression"
           />
           <ScreenshotFrame
-            src="/screenshots/silverfox/sign-in.png"
-            alt="Silverfox sign-in screen"
+            src="/screenshots/primeform/sign-in.png"
+            alt="primeform sign-in screen"
             caption="Optional sign-in — the app works via an anonymous session first"
           />
         </div>
@@ -138,13 +138,13 @@ export default function SilverfoxPage() {
 
       <CaseStudySection heading="Quality Engineering">
         <p className="max-w-2xl leading-relaxed text-muted">
-          Testing Silverfox is also where the AI test-agent work below
+          Testing primeform is also where the AI test-agent work below
           happens for real, not as a demo. Two agents, with a deliberate
           split between them.
         </p>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          {silverfoxAgents.map((agent, i) => (
+          {primeformAgents.map((agent, i) => (
             <Reveal key={agent.name} delay={i * 0.08} y={14}>
               <div className="h-full rounded-2xl border border-border bg-surface p-7">
                 <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ export default function SilverfoxPage() {
       <CaseStudySection heading="What I'm experimenting with" className="pb-28 sm:pb-36">
         <ul className="max-w-2xl space-y-3">
           {[
-            "Automating the BDD specification already written in Gherkin for Silverfox's core journeys — the feature files exist; the step-definition layer that runs them doesn't yet.",
+            "Automating the BDD specification already written in Gherkin for primeform's core journeys — the feature files exist; the step-definition layer that runs them doesn't yet.",
             "Building the Logic Agent itself: real API/database-level tests against Supabase, proving data isolation directly rather than inferring it from reading RLS policies.",
             "Database-level tests (pgTAP) that exercise RLS policies and constraints against Postgres independently of the app.",
             "Whether MCP is a sensible way to hand an agent these same testing tools — see MCP + Agentic Testing, which is exploratory thinking, not implemented work.",
@@ -240,7 +240,7 @@ export default function SilverfoxPage() {
         </ul>
       </CaseStudySection>
 
-      <CaseStudyNav currentHref="/work/silverfox" />
+      <CaseStudyNav currentHref="/work/primeform" />
     </>
   );
 }

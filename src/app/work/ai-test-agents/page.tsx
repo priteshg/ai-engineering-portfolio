@@ -29,10 +29,10 @@ export default function AiTestAgentsPage() {
         <p className="max-w-2xl leading-relaxed text-muted">
           This is real work tested against a real application —{" "}
           <Link
-            href="/work/silverfox"
+            href="/work/primeform"
             className="text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
           >
-            Silverfox
+            primeform
           </Link>
           , not a demo app built to make the agents look good. One half of
           it is built and produces real findings today. The other half is
@@ -43,7 +43,7 @@ export default function AiTestAgentsPage() {
 
       <CaseStudySection heading="Flow Agent — implemented">
         <p className="max-w-2xl leading-relaxed text-muted">
-          A Playwright framework that drives Silverfox&apos;s real UI
+          A Playwright framework that drives primeform&apos;s real UI
           through its user journeys and a structured programme of boundary
           and security-payload fuzzing, then writes up what it finds as a
           structured report — closer to exploratory testing than a fixed
@@ -179,7 +179,7 @@ export default function AiTestAgentsPage() {
         <ul className="max-w-2xl space-y-3">
           {[
             "Build Logic Agent against Supabase directly, starting with cross-user data isolation.",
-            "Grow the Gherkin/BDD specification already written for Silverfox into automated step definitions, alongside — not replacing — the existing Playwright suite.",
+            "Grow the Gherkin/BDD specification already written for primeform into automated step definitions, alongside — not replacing — the existing Playwright suite.",
             "Investigate whether MCP is a sensible way to expose these same tools to an agent — see MCP + Agentic Testing for that early-stage thinking.",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-sm text-foreground/90">
